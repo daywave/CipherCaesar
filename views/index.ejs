@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Web Page</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #f0f0f0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+    form {
+      text-align: center;
+      margin-top: 20px;
+    }
+    input[type="text"],
+    input[type="number"] {
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    p {
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+    <h1>Ingresa la cadena a cifrar o descifrar</h1>
+    <form action="/cipher" method="POST">
+        <input type="text" name="text" placeholder="Texto a cifrar/descifrar">
+        <input type="number" name="shift" placeholder="Desplazamiento">
+        <button type="submit">Cifrar</button>
+    </form>
+    <form action="/decipher" method="POST">
+        <input type="text" name="text" placeholder="Texto a cifrar/descifrar">
+        <input type="number" name="shift" placeholder="Desplazamiento">
+        <button type="submit">Descifrar</button>
+    </form>
+  
+    <% if (typeof cipheredText !== 'undefined') { %>
+        <p>Cadena cifrada: <%= cipheredText %></p>
+    <% } %>
+    <% if (typeof decipheredText !== 'undefined') { %>
+        <p>Cadena descifrada: <%= decipheredText %></p>
+    <% } %>
+</body>
+</html>
