@@ -1,10 +1,11 @@
 const express = require('express');
 const app = express();
 
+//1
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({ extended: true })); // Para manejar datos de formulario
+app.use(express.urlencoded({ extended: true })); 
 
-// Función para cifrar y descifrar
+//2
 function caesarCipher(str, shift, mode) {
     if (mode === 'decrypt') shift = (26 - shift) % 26;
     return str.split('').map(char => {
@@ -22,14 +23,14 @@ app.get('/', (req, res) =>{
     res.render('index');
 });
 
-// Ruta para manejar la solicitud de cifrado
+//3
 app.post('/cipher', (req, res) => {
     const { text, shift } = req.body;
     const cipheredText = caesarCipher(text, parseInt(shift), 'encrypt');
     res.render('index', { cipheredText });
 });
 
-// Ruta para manejar la solicitud de descifrado
+//4
 app.post('/decipher', (req, res) => {
     const { text, shift } = req.body;
     const decipheredText = caesarCipher(text, parseInt(shift), 'decrypt');
