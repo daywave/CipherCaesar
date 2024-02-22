@@ -18,7 +18,6 @@ function caesarCipher(str, shift, mode) {
     }).join('');
 }
 
-// Ruta para la página principal
 app.get('/', (req, res) =>{
     res.render('index');
 });
